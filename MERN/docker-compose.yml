@@ -1,0 +1,44 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./Backend-NodeJS  # Path to your backend project folder
+    ports:
+      - "8000:8000"  # Exposing backend to localhost:8000
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://mongo:27017/blogCollections  # MongoDB connection URI
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+    restart: always  # Ensures the backend restarts if it crashes
+  
+  frontend:
+    build:
+      context: ./frontend  # Path to your frontend project folder
+    ports:
+      - "3000:80"  # Mapping both host and container ports to 3000
+    networks:
+      - app-network
+    restart: always  # Ensures the frontend restarts if it crashes
+
+  mongo:
+    image: mongo:6.0.7
+    platform: linux/amd64
+    container_name: mongo-container
+    ports:
+      - "27017:27017"  # Exposing MongoDB to localhost:27017
+    volumes:
+      - mongo-data:/data/db  # Mount MongoDB data storage to persist data
+      - ./mongo-backups:/docker-entrypoint-initdb.d  # Initialization scripts or backups
+    networks:
+      - app-network
+    restart: always  # Ensures MongoDB restarts if it crashes
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:  # Volume for MongoDB data persistence

@@ -111,9 +111,9 @@ const AllBlogs = ({ socket }) => {
                       />
                     </g>
                   </svg>
-                  <p class="laptop-l:w-[464px] ml-4 s:ml-1 s:w-[206px] s:pl-2 s:font-semibold">
+                 <p class="laptop-l:w-[464px] ml-4 s:ml-1 s:w-[206px] s:pl-2 s:font-semibold">
                     Blog Created by {item.createdBy.firstname}
-                  </p>
+                  </p> 
                 </div>
 
                 {/* Blog Title */}

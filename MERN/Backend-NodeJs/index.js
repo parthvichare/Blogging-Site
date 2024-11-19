@@ -43,30 +43,18 @@ const io = socketIo(server,{cors:{origin:"http://localhost:3000"}})
 //Multer for Storing Image/files
 const multer = require('multer');
 
-
-//Connect MongoDb to Server
-// const mongoose = require('mongoose');
-
-// Use the service name `mongo` as defined in the docker-compose.yml file
-// const uri = 'mongodb://mongo:27017/blogCollections';
-
-// Connection options for improved compatibility and performance
+// // //Connect MongoDb to Server
 // mongoose.connect("mongodb://127.0.0.1:27017/blogCollections")
 //     .then(async () => {
 //         console.log("MongoDB successfully connected with server:8000");
-
 //     })
-//     .catch(async(err=Error)=>console.log("Error is",err))
+//     .catch((err) => console.log("Error is", err));
+
 
 
 //Connect MongoDb to Server
-mongoose.connect("mongodb://127.0.0.1:27017/blogCollections")
-    .then(async () => {
-        console.log("MongoDB successfully connected with server:8000");
-
-    })
-    .catch(async(err=Error)=>console.log("Error is",err))
-
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/blogCollections';
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 //View ejs
