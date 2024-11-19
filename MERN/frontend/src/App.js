@@ -27,7 +27,7 @@ const App = () => {
   // const[count,setCount]=useState(0)
   const userId=localStorage.getItem("AdminId")
 
-  const socketUrl = process.env.production.REACT_APP_BACKEND_URL || "http://localhost:8000";
+  const socketUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
 
   // const socketUrl = io("https://backend-blogging-cgw5.onrender.com", {
   //   withCredentials: true
