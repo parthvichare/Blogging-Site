@@ -29,6 +29,11 @@ const App = () => {
 
   const socketUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
 
+
+  console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL);
+
+
+
   // const socketUrl = io("https://backend-blogging-cgw5.onrender.com", {
   //   withCredentials: true
   // });
