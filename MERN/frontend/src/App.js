@@ -27,11 +27,11 @@ const App = () => {
   // const[count,setCount]=useState(0)
   const userId=localStorage.getItem("AdminId")
 
-
+  const socketUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
 
   // Receving Upcoming request from the server for Building WebSocket server
   useEffect(() => {
-    socket.current = io('http://localhost:8000');
+    socket.current = io(socketUrl);
     socket.current.emit("fetchUserInfo", (userId))
 
     socket.current.on("connect", () => {
