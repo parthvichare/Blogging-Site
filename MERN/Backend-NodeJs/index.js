@@ -12,6 +12,8 @@ const Blog= require("./models/blogs");
 const User=require("./models/user");
 const BlogNotify=require("./models/BlogNotify")
 
+const connectDB = require('./app');
+
 const userRouter = require("./routes/users")
 const blogRouter =require("./routes/blog")
 const cors = require('cors');
@@ -26,7 +28,7 @@ const {
 const app=express();
 
 //PORT on which our server start
-const PORT = 8000
+const PORT = process.env.PORT || 8000;
 
 app.use(express.json())
 
@@ -38,10 +40,24 @@ const fs = require('fs');
 const http= require("http")
 const server=  http.createServer(app)
 const socketIo = require("socket.io")
-const io = socketIo(server,{cors:{origin:"http://localhost:3000"}})
+// const io = socketIo(server,{cors:{origin:"http://localhost:3000"}})
+
+const io = socketIo(server, {
+    cors: {
+      origin: [
+        "http://localhost:3000", // for local dev
+        "https://blogging-site-tboi.vercel.app" // for Vercel prod
+      ],
+      methods: ["GET", "POST"],
+      credentials: true
+    }
+  });
+  
 
 //Multer for Storing Image/files
 const multer = require('multer');
+
+connectDB();
 
 // // //Connect MongoDb to Server
 // mongoose.connect("mongodb://127.0.0.1:27017/blogCollections")
@@ -52,9 +68,9 @@ const multer = require('multer');
 
 
 
-//Connect MongoDb to Server
-const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/blogCollections';
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+// // //Connect MongoDb to Server
+// const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/blogCollections';
+// mongoose.connect(mongoURI, { useNewUrlParser: true });
 
 
 //View ejs
@@ -95,8 +111,11 @@ app.get("/user_profile/:id", async (req, res) => {
     }
 });
 
-app.use(cors());
-
+app.use(cors({
+    origin: ['https://blogging-site-tboi.vercel.app', 'http://localhost:3000'], // Add other trusted origins if needed
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  }));
 
 io.on("connection",(socket)=>{
 
