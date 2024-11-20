@@ -105,7 +105,7 @@ const AllBlogs = ({ socket }) => {
         {blogs ? (
           blogs.map((item, index) => (
             <a
-              class="laptop-l:w-[680px] laptop:w-[680px] tablet:w-[680px] tablet:mx-24 laptop-l:flex laptop:flex tablet:flex l:flex s:flex mb-20 border-b-2 border-slate-100"
+              class="laptop-l:w-[680px] laptop:w-[680px]  tablet:mx-24 laptop-l:flex laptop:flex tablet:flex l:flex s:flex mb-20 border-b-2 border-slate-100"
               href={`/blog/${item._id}`}
             >
               <div>
@@ -130,9 +130,9 @@ const AllBlogs = ({ socket }) => {
                       />
                     </g>
                   </svg>
-                 <p class="laptop-l:w-[464px] ml-4 s:ml-1 s:w-[206px] s:pl-2 s:font-semibold">
-                    Blog Created by {item.createdBy.firstname}
-                  </p> 
+                  <p class="laptop-l:w-[464px] ml-4 s:ml-1 s:w-[206px] s:pl-2 s:font-semibold">
+                    Blog Created by {item.createdBy?.firstname || "Anonymous"}
+                  </p>
                 </div>
 
                 {/* Blog Title */}
@@ -140,7 +140,7 @@ const AllBlogs = ({ socket }) => {
                   <textarea
                     ref={TitleRef}
                     value={item.title}
-                    className="laptop-l:w-[464px] laptop:w-[464px] tablet:w-[450px] l:w-[377px]  m:w-[327px] m:h-[120px] s:w-[272px]  cursor-pointer overflow-hidden focus:outline-none resize-none"
+                    className="laptop-l:w-[464px] laptop:w-[464px] tablet:w-[450px] l:w-[377px]  m:w-[327px] m:h-[120px] s:w-[160px]  cursor-pointer overflow-hidden focus:outline-none resize-none"
                     type="text"
                     name="title"
                     required
@@ -166,7 +166,7 @@ const AllBlogs = ({ socket }) => {
                 <img
                   src={`${process.env.REACT_APP_BACKEND_URL}${item.blogImages}`}
                   alt="Blog image"
-                  className="laptop-l:w-[190px] laptop:w-[180px] tablet:w-[190px] tablet:h-28 laptop:h-24 laptop-l:h-28 l:w-[100px] l:h-20 mb-8 s:w-[230px] s:h-16 "
+                  className="laptop-l:w-[190px] laptop:w-[180px] tablet:w-[600px] tablet:h-28 laptop:h-24 laptop-l:h-28 l:w-[100px] l:h-20 mb-8 s:w-[230px] s:h-16 "
                 />
               </div>
             </a>

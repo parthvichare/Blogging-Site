@@ -29,7 +29,7 @@ const Navbar = ({ socket }) => {
             </a>
           </ul>
 
-          <div class="flex  l:pr-6 l:space-x-4 m:px-4 laptop:pr-16 justify-end laptop-l:space-x-9  s:space-x-2 s:pr-4">
+          <div class="flex  l:pr-6 l:space-x-4 m:px-4 laptop:pr-16 justify-end laptop-l:space-x-9  s:space-x-6 s:pr-4">
             <a href="/user/signup">
               <li class="list-none text-stone-700 hover:text-black s:text-xx laptop-l:text-xl laptop:text-lg">
                 SignUp
@@ -54,8 +54,8 @@ const Navbar = ({ socket }) => {
   } else if (token && userId) {
     return (
       <div>
-        <section class="laptop-l:w-full laptop:w-full tablet:w-full mt-3 laptop-l:px-4  border-b-4 l:w-full s:w-full">
-          <div class="laptop-l:flex laptop:flex l:flex justify-between s:flex  tablet:flex mb-2 s:px-2">
+        <section class="laptop-l:w-full laptop:w-full tablet:w-[768px] mt-3 laptop-l:px-4  border-b-4 l:w-full  s:w-full">
+          <div class="laptop-l:flex laptop:flex l:flex justify-between s:flex tablet:flex mb-2 ">
             {/* Logo */}
             <ul>
               <a href="/">
@@ -66,10 +66,10 @@ const Navbar = ({ socket }) => {
             </ul>
 
             {/* Menus */}
-            <div class="l:w-full l:pr-2">
-              <ul class="laptop-l:flex laptop:flex tablet:flex justify-center items-center inline-block space-x-8 l:flex l:justify-end s:flex s:w-full">
+            <div class="l:w-full s:w-full l:pr-2">
+              <ul class="laptop-l:flex laptop:flex tablet:flex justify-end  inline-block space-x-8 s:space-x-4 s:ml-16 s:flex l:ml-36 m:ml-32 m:space-x-6 tablet:mr-10">
                 <a href="/blog/addblog">
-                  <div class="laptop-l:flex laptop:flex tablet:flex block  w-16 text-stone-600 hover:text-black l:hidden s:hidden">
+                  <div class="laptop-l:flex laptop:flex tablet:flex s:w-5  block   text-stone-600 hover:text-black ">
                     {/* Adding Blog Navbar */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ const Navbar = ({ socket }) => {
                         d="m17.5 4.5-8.458 8.458a.25.25 0 0 0-.06.098l-.824 2.47a.25.25 0 0 0 .316.316l2.47-.823a.25.25 0 0 0 .098-.06L19.5 6.5m-2-2 2.323-2.323a.25.25 0 0 1 .354 0l1.646 1.646a.25.25 0 0 1 0 .354L19.5 6.5m-2-2 2 2"
                       ></path>
                     </svg>
-                    <div class="tablet:text-1xl mt-1">Write</div>
+                    <div class="tablet:text-1xl mt-1 s:hidden">Write</div>
                   </div>
                 </a>
 
@@ -101,10 +101,10 @@ const Navbar = ({ socket }) => {
                 <button onClick={toggleUserOption}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
+                    width="16"
+                    height="16"
                     fill="currentColor"
-                    class="text-gray-700 hover:text-blue-500 border-2 border-black rounded-full w-8 h-8"
+                    class="text-gray-700 hover:text-blue-500 border-2 border-black rounded-full w-8 h-8 "
                     viewBox="0 0 24 24"
                   >
                     <circle cx="12" cy="8" r="4" />

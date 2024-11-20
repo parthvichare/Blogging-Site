@@ -164,7 +164,7 @@ const BlogInfo = ({ socket }) => {
             <textarea
               ref={TitleRef}
               value={blogs.title}
-              className="w-[680px]   tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] overflow-hidden focus:outline-none resize-none"
+              className="w-[680px] tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] overflow-hidden focus:outline-none resize-none "
               type="text"
               name="title"
               onChange={handleChange}
