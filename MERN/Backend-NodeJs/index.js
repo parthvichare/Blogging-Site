@@ -3,7 +3,6 @@ const express=require("express");
 const cookieParser=require("cookie-parser")
 
 //Mongoose help for Connecting to DataBase
-const mongoose= require("mongoose")
 
 const jwt = require('jsonwebtoken');
 
@@ -11,6 +10,8 @@ const jwt = require('jsonwebtoken');
 const Blog= require("./models/blogs");
 const User=require("./models/user");
 const BlogNotify=require("./models/BlogNotify")
+
+
 
 const connectDB = require('./app');
 
@@ -26,10 +27,6 @@ const {
 
 
 const app=express();
-
-//PORT on which our server start
-const PORT = process.env.PORT || 8000;
-
 app.use(express.json())
 
 //File-System
@@ -40,24 +37,28 @@ const fs = require('fs');
 const http= require("http")
 const server=  http.createServer(app)
 const socketIo = require("socket.io")
-// const io = socketIo(server,{cors:{origin:"http://localhost:3000"}})
+
+const PORT = process.env.PORT || 8000;
+
 
 const io = socketIo(server, {
     cors: {
       origin: [
         "http://localhost:3000", // for local dev
-        "https://blogging-site-tboi.vercel.app" // for Vercel prod
+        "https://blogging-site-fawn.vercel.app" // for Vercel prod
       ],
-      methods: ["GET", "POST"],
+      methods: ["GET", "POST","PATCH","DELETE"],
       credentials: true
     }
   });
+
+
+connectDB();
   
 
 //Multer for Storing Image/files
 const multer = require('multer');
 
-connectDB();
 
 // // //Connect MongoDb to Server
 // mongoose.connect("mongodb://127.0.0.1:27017/blogCollections")
@@ -112,10 +113,13 @@ app.get("/user_profile/:id", async (req, res) => {
 });
 
 app.use(cors({
-    origin: ['https://blogging-site-tboi.vercel.app', 'http://localhost:3000'], // Add other trusted origins if needed
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
-  }));
+  origin: [
+    "http://localhost:3000",  // for local development
+    "https://blogging-site-fawn.vercel.app" // for deployed frontend
+  ],
+  methods: ["GET", "POST","PATCH","DELETE"],
+  credentials: true,
+}));
 
 io.on("connection",(socket)=>{
 
@@ -233,8 +237,14 @@ app.post('/api/data', (req, res) => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());  // If expecting JSON payloads in other requests
 
-app.get("/", (req, res) => {
-    res.send("Hello World");
+app.get("/", async (req, res) => {
+  try {
+      const blogs = await Blog.find({});  // Wait for the data from the database
+      res.json(blogs);  // Send the blogs as a JSON response
+  } catch (error) {
+      console.error("Error fetching blogs:", error);
+      res.status(500).send("Internal Server Error");  // Send an error response if something goes wrong
+  }
 });
 
 
