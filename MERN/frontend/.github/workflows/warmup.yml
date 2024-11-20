@@ -1,0 +1,14 @@
+name: Keep Vercel Functions Warm
+
+on:
+  schedule:
+    # Run every 10 minutes
+    - cron: '*/10 * * * *'  # Adjust the interval as needed
+
+jobs:
+  warmup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make a request to the Vercel API
+        run: |
+          curl https://blogging-site-fawn.vercel.app
