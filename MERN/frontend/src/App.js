@@ -98,6 +98,9 @@ const App = () => {
   }, []);
 
 
+  if(!data){
+    return <p>Loading</p>
+  }
 
 
 
@@ -115,6 +118,13 @@ const App = () => {
           <Route path="/update/:id" element={<UpdateBlog />} />
         </Routes>
       </Router>
+      <div>
+      {data.map((item,index)=>(
+        <div>
+          {item.title}
+        </div>
+      ))}
+      </div>
     </div>
   );
 };
