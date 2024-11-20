@@ -24,28 +24,12 @@ const App = () => {
 
   const{messageIsOpen}=useContext(BlogContext)
   const[setUser]=useState(null)
-  const[data,setData]=useState(null)
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL ||  "http://localhost:8000";
 
 
   // const[count,setCount]=useState(0)
   const userId=localStorage.getItem("AdminId")
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`${BACKEND_URL}/`);
-      setData(response.data); // Update state with the fetched data
-    } catch (error) {
-      console.error('Error fetching data from backend:', error);
-    }
-  };
-
-  useEffect(()=>{
-    fetchData()
-  },[])
-
-  console.log("Blog",data)
 
   const socketUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
 
@@ -98,12 +82,6 @@ const App = () => {
   }, []);
 
 
-  if(!data){
-    return <p>Loading</p>
-  }
-
-
-
   return (
     <div className={`${messageIsOpen?"overflow-hidden":""}`}>
       <Navbar socket={socket} />
@@ -118,13 +96,6 @@ const App = () => {
           <Route path="/update/:id" element={<UpdateBlog />} />
         </Routes>
       </Router>
-      <div>
-      {data.map((item,index)=>(
-        <div>
-          {item.title}
-        </div>
-      ))}
-      </div>
     </div>
   );
 };

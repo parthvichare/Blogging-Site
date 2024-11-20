@@ -14,7 +14,7 @@ const Signout = () => {
       localStorage.removeItem("AdminId")
       localStorage.removeItem("createdBy")
       localStorage.removeItem("blogNotify")
-      window.location.reload()
+      window.location.href = "/user/signin"; // Redirects to the login page
 
     //   // Clear the token and navigate to login page
     //   if(userId){
@@ -35,11 +35,9 @@ const Signout = () => {
     <div>
       <ul>
         <li>
-          <a href="/user/signin">
             <button onClick={handleLogOut} className="ml-4  text-zinc-700 px-4 py-2 rounded hover:text-slate-950 transition duration-300 ease-in-out text-xl ">
               SignOut
             </button>
-          </a>
         </li>
       </ul>
       {message && <p>{message}</p>}
