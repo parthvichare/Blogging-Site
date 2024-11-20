@@ -11,6 +11,10 @@ const BlogInfo = ({ socket }) => {
 
   const containerRef=useRef(null)
 
+  //To Insert Image
+
+  const BACKEND_URL= process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000'
+
 
   const{blogs,setBlog, messageIsOpen}=useContext(BlogContext)
 
@@ -173,7 +177,7 @@ const BlogInfo = ({ socket }) => {
           <div class="laptop:ml-16 tablet:ml-4  l:ml-8">
           <div className={`${menuisopen ? "opacity-50" : ""} relative z-0`}>
             <img
-              src={`http://localhost:8000${blogs.blogImages}`} // Correct path
+              src={`${BACKEND_URL}${blogs.blogImages}`} // Correct path
               alt="Blog Image"
               className="laptop-l:w-[690px] laptop:w-[650px] tablet:w-[620px] l:w-[360px] h-auto mt-4 mb-4  laptop-l:ml-2 laptop:ml-8 tablet:ml-10" 
             />
