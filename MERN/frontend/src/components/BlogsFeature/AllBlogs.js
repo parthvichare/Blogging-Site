@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import axiosInstance from "../../axiosInstance";
 import { BlogContext } from "../BlogContext";
+import axios from 'axios';
 
 const AllBlogs = ({ socket }) => {
   const [error, setError] = useState(null);
@@ -9,10 +10,26 @@ const AllBlogs = ({ socket }) => {
 
   const TitleRef = useRef();
 
+  // const BACKEND_URL = process.env.REACT_APP_BACKEND_URL ||  "http://localhost:8000";
+
+
+  // // const[count,setCount]=useState(0)
+  // const userId=localStorage.getItem("AdminId")
+
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await axios.get(`${BACKEND_URL}/`);
+  //     setData(response.data); // Update state with the fetched data
+  //   } catch (error) {
+  //     console.error('Error fetching data from backend:', error);
+  //   }
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL ||  "http://localhost:8000";
+
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axiosInstance.get("/blog/api/blogs");
+        const response = await axios.get(`${BACKEND_URL}/blog/api/blogs`);
         // const{body}=response.data
         setBlog(response.data.blogs);
         // setBlog(response.data.)
