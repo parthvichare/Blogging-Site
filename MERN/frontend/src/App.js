@@ -12,6 +12,7 @@ import BlogInfo from "./components/BlogsFeature/BlogInfo"
 import AllBlogs from "./components/BlogsFeature/AllBlogs"
 import Navbar from "./components/Navbar";
 import UpdateBlog from "./components/BlogsFeature/UpdateBlog";
+import axios from 'axios';
 
 // 
 import { BlogContext } from "./components/BlogContext";
@@ -23,14 +24,31 @@ const App = () => {
 
   const{messageIsOpen}=useContext(BlogContext)
   const[setUser]=useState(null)
+  const[data,setData]=useState(null)
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL ||  "http://localhost:8000";
+
 
   // const[count,setCount]=useState(0)
   const userId=localStorage.getItem("AdminId")
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/`);
+      setData(response.data); // Update state with the fetched data
+    } catch (error) {
+      console.error('Error fetching data from backend:', error);
+    }
+  };
+
+  useEffect(()=>{
+    fetchData()
+  },[])
+
   const socketUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
 
 
-  console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL);
+  console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL); 
 
 
 
