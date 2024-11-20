@@ -78,6 +78,8 @@ const AllBlogs = ({ socket }) => {
     }
   }, []);
 
+  console.log("All Blogs",blogs)
+
   useEffect(() => {
     if (TitleRef.current) {
       TitleRef.current.style.height = "auto";
