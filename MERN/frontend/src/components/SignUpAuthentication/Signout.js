@@ -7,22 +7,28 @@ const Signout = () => {
   const userId=localStorage.getItem("AdminId")
 
   const handleLogOut = async () => {
-    try {
+    // try {
       // Send logout request to the server
       await axiosInstance.post("/user/logout");
-
-      // Clear the token and navigate to login page
-      if(userId){
-        localStorage.removeItem("token");
-        localStorage.removeItem("AdminId")
-        localStorage.removeItem("createdBy")
-        localStorage.removeItem("blogNotify")
-      }
+      localStorage.removeItem("token");
+      localStorage.removeItem("AdminId")
+      localStorage.removeItem("createdBy")
+      localStorage.removeItem("blogNotify")
       window.location.reload()
-    } catch (error) {
-      console.error("Logout failed:", error);
-      setMessage("Logout failed. Please try again.");
-    }
+
+    //   // Clear the token and navigate to login page
+    //   if(userId){
+    //     localStorage.removeItem("token");
+    //     localStorage.removeItem("AdminId")
+    //     localStorage.removeItem("createdBy")
+    //     localStorage.removeItem("blogNotify")
+    //   }
+    //   window.location.reload()
+    // } catch (error) {
+    //   console.error("Logout failed:", error);
+    //   setMessage("Logout failed. Please try again.");
+    // }
+    // }
   };
 
   return (
