@@ -29,7 +29,7 @@ const AllBlogs = ({ socket }) => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URL}/blog/api/blogs`);
+        const response = await axiosInstance.get(`/blog/api/blogs`);
         // const{body}=response.data
         setBlog(response.data.blogs);
         // setBlog(response.data.)
@@ -79,7 +79,6 @@ const AllBlogs = ({ socket }) => {
   }, []);
 
   console.log("All Blogs",blogs)
-
 
   useEffect(() => {
     if (TitleRef.current) {
@@ -165,7 +164,8 @@ const AllBlogs = ({ socket }) => {
               </div>
               <div class="mt-8">
                 <img
-                  src={`https://backend-blogging-fa2r.onrender.com${item.blogImages}`}
+                  src={`${process.env.REACT_APP_BACKEND_URL}${item.blogImages}`}
+                  alt="Blog image"
                   className="laptop-l:w-[190px] laptop:w-[180px] tablet:w-[190px] tablet:h-28 laptop:h-24 laptop-l:h-28 l:w-[100px] l:h-20 mb-8 s:w-[230px] s:h-16 "
                 />
               </div>
