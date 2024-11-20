@@ -165,7 +165,7 @@ const AllBlogs = ({ socket }) => {
               </div>
               <div class="mt-8">
                 <img
-                  src={`${process.env.REACT_APP_BACKEND_URL}${item.blogImages}`}
+                  src={`https://backend-blogging-fa2r.onrender.com${item.blogImages}`}
                   className="laptop-l:w-[190px] laptop:w-[180px] tablet:w-[190px] tablet:h-28 laptop:h-24 laptop-l:h-28 l:w-[100px] l:h-20 mb-8 s:w-[230px] s:h-16 "
                 />
               </div>
