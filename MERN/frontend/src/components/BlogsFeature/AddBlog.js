@@ -104,13 +104,13 @@ const AddBlog = ({ socket }) => {
 
   return (
     <div>
-      <div className="h-full flex justify-center items-start laptop-l:justify-center laptop:justify-center laptop:mx-8 border-none overflow-y-hidden">
+      <div className="h-full flex justify-center items-start laptop-l:justify-center laptop:justify-center laptop:mx-8 border-none overflow-y-hidden bg-black">
         <form onSubmit={handleSubmit} className="overflow-hidden">
           {/* Title Input Section */}
           <div className="mt-3 l:px-5 s:px-3">
             <textarea
               ref={titleRef}
-              className="laptop-l:w-[700px] laptop:w-[700px] l:w-[385px] s:w-[290px] tablet:w-[700px] overflow-hidden text-4xl s:text-3xl font-semibold text-gray-900 placeholder-gray-400 focus:outline-none resize-none   border-gray-300 transition duration-200"
+              className="laptop-l:w-[700px] laptop:w-[700px] l:w-[385px] s:w-[290px] tablet:w-[700px] overflow-hidden text-4xl s:text-3xl font-semibold text-gray-900 placeholder-gray-400 focus:outline-none resize-none   border-gray-300 transition duration-200 bg-transparent"
               name="title"
               placeholder="Title"
               onChange={(e) => {
@@ -152,7 +152,7 @@ const AddBlog = ({ socket }) => {
                   <textarea
                     ref={bodyRef}
                     onKeyDown={handleKeyDown}
-                    className="laptop-l:w-[700px] laptop:w-[700px] tablet:w-[700px] l:w-[385px] m:w-[335px] s:w-[280px] l:text-xl laptop-l:text-4xl laptop:text-3xl s:text-xl s:pl-3 text-gray-800 placeholder-gray-400 focus:outline-none resize-none l:flex justify-end border-gray-300 transition duration-200 "
+                    className="laptop-l:w-[700px] laptop:w-[700px] tablet:w-[700px] l:w-[385px] m:w-[335px] s:w-[280px] l:text-xl laptop-l:text-4xl laptop:text-3xl s:text-2xl s:pl-3 text-gray-800 placeholder-gray-400 focus:outline-none resize-none l:flex justify-end border-gray-300 transition duration-200  bg-transparent"
                     name="body"
                     placeholder="Tell your story..."
                     onChange={(e) => {

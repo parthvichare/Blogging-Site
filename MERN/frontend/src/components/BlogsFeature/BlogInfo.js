@@ -164,7 +164,7 @@ const BlogInfo = ({ socket }) => {
             <textarea
               ref={TitleRef}
               value={blogs.title}
-              className="w-[680px] tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] overflow-hidden focus:outline-none resize-none bg-transparent"
+              className="w-[680px] tablet:w-[680px] tablet:text-3xl m:text-2xl l:w-[377px]  m:w-[327px]  s:w-[272px] s:h-[114px] overflow-hidden focus:outline-none resize-none bg-transparent"
               type="text"
               name="title"
               onChange={handleChange}
@@ -186,7 +186,7 @@ const BlogInfo = ({ socket }) => {
             <textarea
               ref={ContentRef}
               value={blogs.body}
-              className="w-[680px]   tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] font-custom-serif space-x-5 text-2xl overflow-hidden focus:outline-none resize-none bg-transparent"
+              className="tablet:w-[680px]  l:w-[377px]  m:w-[327px] m:h-[114px] s:w-[300px] font-custom-serif space-x-5 text-2xl overflow-hidden focus:outline-none resize-none bg-transparent"
               type="text"
               name="body"
               onChange={handleChange}
