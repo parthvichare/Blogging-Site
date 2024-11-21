@@ -6,7 +6,6 @@ const connectDB = async () => {
   try {
     await mongoose.connect(Connectstring, {
       useNewUrlParser: true,
-      useUnifiedTopology: true, // Ensure you're using the latest connection options
     });
     console.log('Connected to MongoDB Atlas');
   } catch (error) {
