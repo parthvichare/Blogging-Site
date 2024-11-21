@@ -90,18 +90,30 @@ const SideBarMessagebox = ({toggleMessagebox }) => {
 
 
       
-    useEffect(()=>{
-      const fetchUser= async()=>{
-        try{
+    useEffect(() => {
+      const fetchUser = async () => {
+        try {
           const response = await axiosInstance.get(`/user/${adminId}`);
-          setUser(response.data.users);
-        }catch(error){
-          console.log("Error fetching user:", error)
+          const { user, Anoynomus_users } = response.data;
+    
+          if (!user) {
+            // If user is null, display the anonymous user message
+            setUser(Anoynomus_users || "No user found");
+          } else {
+            setUser(user);
+          }
+    
+          console.log(user); // Log the user or message
+        } catch (error) {
+          console.log("Error fetching user:", error);
+          setUser("Error fetching user");
         }
-      }
-      fetchUser()
-    },[id])
+      };
+    
+      fetchUser();
+    }, [id]); // Ensure the dependency is correct
 
+    console.log(user)
 
 
     
