@@ -167,7 +167,7 @@ const AllBlogs = ({ socket }) => {
                 <img
                   src={`${process.env.REACT_APP_BACKEND_URL}${item.blogImages}`}
                   alt="Blog image"
-                  className="laptop-l:w-[500px] laptop:w-[250px] tablet:w-[600px] tablet:h-36 laptop:h-32 laptop-l:h-28 l:w-[140px] l:h-20  l:ml-4 mb-8 s:w-[300px] s:h-20 laptop-l:ml-16 "
+                  className="laptop-l:w-[500px] laptop:w-[250px] tablet:w-[600px] tablet:h-36 laptop:h-32 laptop-l:h-28 l:w-[140px] l:h-20  l:ml-4 mb-8 s:w-[480px] s:h-20  laptop-l:ml-16 "
                 />
               </div>
             </a>
