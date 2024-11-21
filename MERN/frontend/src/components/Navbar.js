@@ -70,7 +70,7 @@ const Navbar = ({ socket }) => {
               <ul class="laptop-l:flex laptop:flex tablet:flex justify-end inline-block space-x-8 s:space-x-8 s:flex m:space-x-8 tablet:mr-10 m:mr-4">
                 <a href="/blog/addblog">
                   <div class="laptop-l:flex laptop:flex tablet:flex tablet:w-8 tablet:h-8 s:w-5  block   text-stone-600 hover:text-black">
-                    {/* Writing Blog */ }
+                    {/* Writing Blog */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="32"
@@ -97,18 +97,33 @@ const Navbar = ({ socket }) => {
                   <AddedBlogNotify socket={socket} count={count} />
                 </div>
 
-                {/* Profile Navbar */}
-                <button onClick={toggleUserOption} className="s:mb-2 bg-white bg-transparent">
+                {/* Profile Logo */}
+                <button
+                  onClick={toggleUserOption}
+                  className="s:mb-2 text-stone-600 bg-transparent hover:text-black"
+                >
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="text-gray-700 hover:text-blue-500 border-2 border-black rounded-full w-8 h-8"
-                    viewBox="0 0 24 24"
+                    focusable="false"
+                    width="24"
+                    height="24"
+                    className="from-neutral-500"
+                    viewBox="0 0 18 17"
                   >
-                    <circle cx="12" cy="8" r="4" />
-                    <path d="M12 14c-5.33 0-8 3-8 4.5V20h16v-1.5c0-1.5-2.67-4.5-8-4.5z" />
+                    <circle
+                      cx="9"
+                      cy="5"
+                      r="4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    ></circle>
+                    <path
+                      d="M1 17v0a4 4 0 014-4h8a4 4 0 014 4v0"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    ></path>
                   </svg>
                 </button>
               </ul>
