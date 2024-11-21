@@ -13,7 +13,7 @@ const AddedBlogNotify = ({ socket, count }) => {
   }, []);
 
   return (
-    <div class="px-2">
+    <div class="">
       <button onClick={toggleNotify} class="-mt-1">
         <div className="relative flex items-center">
           <svg
@@ -22,7 +22,7 @@ const AddedBlogNotify = ({ socket, count }) => {
             viewBox="0 0 36 36"
             version="1.1"
             preserveAspectRatio="xMidYMid meet"
-            className="w-8 h-8 text-stone-600 hover:text-black transition duration-200"
+            className="w-6 s:mt-2 s:w-8 s:h-8  text-stone-600 hover:text-black transition duration-200"
           >
             <title>notification-line</title>
             <path

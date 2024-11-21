@@ -164,7 +164,7 @@ const BlogInfo = ({ socket }) => {
             <textarea
               ref={TitleRef}
               value={blogs.title}
-              className="w-[680px] tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] overflow-hidden focus:outline-none resize-none "
+              className="w-[680px] tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] overflow-hidden focus:outline-none resize-none bg-transparent"
               type="text"
               name="title"
               onChange={handleChange}
@@ -174,19 +174,19 @@ const BlogInfo = ({ socket }) => {
           <div>
             <UserPostToolBar blogs={blogs} />
           </div>
-          <div class="laptop:ml-16 tablet:ml-4  l:ml-8">
+          <div class="l:mx-4 laptop:mx-12">
           <div className={`${menuisopen ? "opacity-50" : ""} relative z-0`}>
             <img
               src={`${BACKEND_URL}${blogs.blogImages}`} // Correct path
               alt="Blog Image"
-              className="laptop-l:w-[690px] laptop:w-[650px] tablet:w-[620px] l:w-[360px] h-auto mt-4 mb-4  laptop-l:ml-2 laptop:ml-8 tablet:ml-10" 
+              className="laptop-l:w-[690px] laptop:w-[650px] tablet:w-[620px] l:w-[360px] s:w-[272px] s:pl-8 m:w-[340px] h-auto mt-4 mb-4  laptop-l:ml-2 laptop:ml-8 tablet:ml-10" 
             />
           </div>
           <div class="laptop-l:w-[680px] laptop-l:mt-6 laptop:w-[640px] tablet:w-[620px] tablet:ml-8 l:w-[320px] l:ml-4 s:mx-4">
             <textarea
               ref={ContentRef}
               value={blogs.body}
-              className="w-[680px]   tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] font-custom-serif space-x-5 text-2xl overflow-hidden focus:outline-none resize-none"
+              className="w-[680px]   tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] font-custom-serif space-x-5 text-2xl overflow-hidden focus:outline-none resize-none bg-transparent"
               type="text"
               name="body"
               onChange={handleChange}

@@ -54,12 +54,12 @@ const Navbar = ({ socket }) => {
   } else if (token && userId) {
     return (
       <div>
-        <section class="laptop-l:w-full laptop:w-full tablet:w-[768px] mt-3 laptop-l:px-4  border-b-4 l:w-full  s:w-full">
+        <section class="laptop-l:w-full laptop:w-full tablet:w-[768px] mt-3 laptop-l:px-4  border-b-4 l:w-full">
           <div class="laptop-l:flex laptop:flex l:flex justify-between s:flex tablet:flex mb-2 ">
             {/* Logo */}
             <ul>
               <a href="/">
-                <li class="text-3xl font-thin font-custom-serif l:pl-8">
+                <li class="text-3xl font-thin font-custom-serif l:pl-8 s:pl-2 mt-1">
                   Medium
                 </li>
               </a>
@@ -67,17 +67,18 @@ const Navbar = ({ socket }) => {
 
             {/* Menus */}
             <div class="l:w-full s:w-full l:pr-2">
-              <ul class="laptop-l:flex laptop:flex tablet:flex justify-end  inline-block space-x-8 s:space-x-4 s:ml-16 s:flex l:ml-36 m:ml-32 m:space-x-6 tablet:mr-10">
+              <ul class="laptop-l:flex laptop:flex tablet:flex justify-end inline-block space-x-8 s:space-x-8 s:flex m:space-x-8 tablet:mr-10 m:mr-4">
                 <a href="/blog/addblog">
-                  <div class="laptop-l:flex laptop:flex tablet:flex s:w-5  block   text-stone-600 hover:text-black ">
-                    {/* Adding Blog Navbar */}
+                  <div class="laptop-l:flex laptop:flex tablet:flex tablet:w-8 tablet:h-8 s:w-5  block   text-stone-600 hover:text-black">
+                    {/* Writing Blog */ }
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="32"
-                      height="36"
+                      height="32"
                       fill="none"
                       viewBox="0 0 24 24"
                       aria-label="Write"
+                      className="mt-1 bg-transparent"
                     >
                       <path
                         fill="currentColor"
@@ -88,23 +89,22 @@ const Navbar = ({ socket }) => {
                         d="m17.5 4.5-8.458 8.458a.25.25 0 0 0-.06.098l-.824 2.47a.25.25 0 0 0 .316.316l2.47-.823a.25.25 0 0 0 .098-.06L19.5 6.5m-2-2 2.323-2.323a.25.25 0 0 1 .354 0l1.646 1.646a.25.25 0 0 1 0 .354L19.5 6.5m-2-2 2 2"
                       ></path>
                     </svg>
-                    <div class="tablet:text-1xl mt-1 s:hidden">Write</div>
                   </div>
                 </a>
 
                 {/* Notification Navbar */}
-                <div class="l:-m-1">
+                <div class="l:mt-0 s:mb-2  ">
                   <AddedBlogNotify socket={socket} count={count} />
                 </div>
 
                 {/* Profile Navbar */}
-                <button onClick={toggleUserOption}>
+                <button onClick={toggleUserOption} className="s:mb-2 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="text-gray-700 hover:text-blue-500 border-2 border-black rounded-full w-8 h-8 "
+                    class="text-gray-700 hover:text-blue-500 border-2 border-black rounded-full w-8 h-8"
                     viewBox="0 0 24 24"
                   >
                     <circle cx="12" cy="8" r="4" />

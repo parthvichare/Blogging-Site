@@ -100,12 +100,12 @@ const AllBlogs = ({ socket }) => {
   console.log(blogs);
 
   return (
-    <div class="w-full laptop-l:flex laptop:flex  justify-center mt-16 l:px-5 s:px-3 ">
+    <div class="w-full laptop-l:flex laptop:flex  justify-center mt-16 s:px-3 l:px-6 ">
       <div>
         {blogs ? (
-          blogs.map((item, index) => (
+          blogs.reverse().map((item, index) => (
             <a
-              class="laptop-l:w-[680px] laptop:w-[680px]  tablet:mx-24 laptop-l:flex laptop:flex tablet:flex l:flex s:flex mb-20 border-b-2 border-slate-100"
+              class="laptop-l:w-[680px] laptop:w-[640px] tablet:w-[700px] l:w-[377px] laptop-l:flex laptop:flex tablet:flex l:flex s:flex mb-20 border-b-2 border-slate-100"
               href={`/blog/${item._id}`}
             >
               <div>
@@ -136,11 +136,12 @@ const AllBlogs = ({ socket }) => {
                 </div>
 
                 {/* Blog Title */}
-                <div className="flex justify-start  tablet:text-4xl font-semibold text-base  l:text-xl l:justify-center s:text-2xl">
+                <div className="font-semibold text-base l:text-xl l:justify-center s:text-2xl tablet:w-[464px] l:w-[273px] m:w-[223px] s:w-[168px] laptop:w-[408px]">
                   <textarea
                     ref={TitleRef}
                     value={item.title}
-                    className="laptop-l:w-[464px] laptop:w-[464px] tablet:w-[450px] l:w-[377px]  m:w-[327px] m:h-[120px] s:w-[160px]  cursor-pointer overflow-hidden focus:outline-none resize-none"
+                    className="tablet:text-2xl l:text-xx s:text-base m:text-base laptop-l:w-[470px] laptop-l:text-3xl laptop:w-[410px] l:w-[260px] m:w-[223px] s:w-[168px] laptop:text-2xl  tablet:w-[440px]
+                    cursor-pointer overflow-hidden focus:outline-none resize-none bg-transparent"
                     type="text"
                     name="title"
                     required
@@ -166,7 +167,7 @@ const AllBlogs = ({ socket }) => {
                 <img
                   src={`${process.env.REACT_APP_BACKEND_URL}${item.blogImages}`}
                   alt="Blog image"
-                  className="laptop-l:w-[190px] laptop:w-[180px] tablet:w-[600px] tablet:h-28 laptop:h-24 laptop-l:h-28 l:w-[100px] l:h-20 mb-8 s:w-[230px] s:h-16 "
+                  className="laptop-l:w-[500px] laptop:w-[250px] tablet:w-[600px] tablet:h-36 laptop:h-32 laptop-l:h-28 l:w-[140px] l:h-20  l:ml-4 mb-8 s:w-[300px] s:h-20 laptop-l:ml-16 "
                 />
               </div>
             </a>
