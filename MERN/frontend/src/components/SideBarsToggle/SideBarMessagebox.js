@@ -17,6 +17,8 @@ const SideBarMessagebox = ({toggleMessagebox }) => {
     setMessage,
     activeCommentId,
     setActiveCommentId,
+    user,
+    setUser
   } = useContext(BlogContext);
   const { id } = useParams();
 
@@ -85,6 +87,20 @@ const SideBarMessagebox = ({toggleMessagebox }) => {
       };
       fetchComment();
     }, [id]);
+
+
+      
+    useEffect(()=>{
+      const fetchUser= async()=>{
+        try{
+          const response = await axiosInstance.get(`/user/${adminId}`);
+          setUser(response.data.users);
+        }catch(error){
+          console.log("Error fetching user:", error)
+        }
+      }
+      fetchUser()
+    },[id])
 
 
 
@@ -209,7 +225,7 @@ const SideBarMessagebox = ({toggleMessagebox }) => {
                   />
                 </g>
               </svg>
-              <p class="ml-2 font-semibold">Parth Vichare</p>
+              <p class="ml-2 font-semibold">{user.firstname}</p>
             </div>
             <div class="top-28 ">
               {/* <input type="text" name="content" onChange={handleChange} className="border-2 border-black  w-[60pxpx] px-2  rounded-full"  required /> */}

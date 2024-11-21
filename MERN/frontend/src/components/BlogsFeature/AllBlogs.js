@@ -100,12 +100,12 @@ const AllBlogs = ({ socket }) => {
   console.log(blogs);
 
   return (
-    <div class="w-full laptop-l:flex laptop:flex  justify-center mt-16 s:px-3 l:px-6 ">
+    <div class="laptop-l:flex laptop:flex  justify-center mt-16 s:px-3 l:px-6 ">
       <div>
         {blogs ? (
           blogs.reverse().map((item, index) => (
             <a
-              class="laptop-l:w-[680px] laptop:w-[640px] tablet:w-[700px] l:w-[377px] laptop-l:flex laptop:flex tablet:flex l:flex s:flex mb-20 border-b-2 border-slate-100"
+              class="laptop-l:w-[680px] laptop:w-[640px] tablet:w-[690px] l:w-[377px] laptop-l:flex laptop:flex tablet:flex l:flex s:flex mb-20 border-b-2 border-slate-100"
               href={`/blog/${item._id}`}
             >
               <div>

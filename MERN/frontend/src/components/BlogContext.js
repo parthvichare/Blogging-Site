@@ -15,6 +15,7 @@ export const BlogProvider = ({ children }) => {
   const [menuisopen, setMenuisOpen] = useState(false);
   const[blogs,setBlog]=useState(null)
   const[messageIsOpen,setMessageIsOpen]=useState(false)
+  const[user,setUser]=useState(null);
 
 
   //Comments StateManagement
@@ -62,7 +63,9 @@ export const BlogProvider = ({ children }) => {
         message,
         setMessage,
         activeCommentId, 
-        setActiveCommentId
+        setActiveCommentId,
+        user,
+        setUser
       }}
     >
       {children}

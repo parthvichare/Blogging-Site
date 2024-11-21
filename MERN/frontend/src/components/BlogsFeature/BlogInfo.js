@@ -11,6 +11,10 @@ const BlogInfo = ({ socket }) => {
 
   const containerRef=useRef(null)
 
+  const{user,setUser}=useContext(BlogContext)
+
+
+
   //To Insert Image
 
   const BACKEND_URL= process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000'
@@ -55,6 +59,7 @@ const BlogInfo = ({ socket }) => {
   }, [id]);
 
   console.log("Blog", blogs);
+
 
 
   // Handle Change based on the Input
@@ -139,6 +144,20 @@ const BlogInfo = ({ socket }) => {
         ContentRef.current.style.height = `${ContentRef.current.scrollHeight}px`;
     }
  },[blogs])
+
+
+ useEffect(()=>{
+  const fetchUser= async()=>{
+    try{
+      const response = await axiosInstance.get(`/user/${adminId}`);
+      setUser(response.data.users);
+      console.log(user)
+    }catch(error){
+      console.log("Error fetching user:", error)
+    }
+  }
+  fetchUser()
+},[id])
 
   if (error) {
     return <div>Error: {error}</div>; // Display the error if it exists

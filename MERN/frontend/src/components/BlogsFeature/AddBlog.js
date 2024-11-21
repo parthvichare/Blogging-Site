@@ -104,7 +104,7 @@ const AddBlog = ({ socket }) => {
 
   return (
     <div>
-      <div className="h-full flex justify-center items-start laptop-l:justify-center laptop:justify-center laptop:mx-8 border-none overflow-y-hidden bg-black">
+      <div className="h-full flex justify-center items-start laptop-l:justify-center laptop:justify-center laptop:mx-8 border-none overflow-y-hidden">
         <form onSubmit={handleSubmit} className="overflow-hidden">
           {/* Title Input Section */}
           <div className="mt-3 l:px-5 s:px-3">

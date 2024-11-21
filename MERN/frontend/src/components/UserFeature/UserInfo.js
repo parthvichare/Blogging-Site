@@ -1,10 +1,11 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import { useParams } from 'react-router-dom';
 import axiosInstance from '../../axiosInstance';
+import { BlogContext } from '../BlogContext';
 
 const UserInfo = ({socket}) => {
     const{id}=useParams();
-    const[user,setUser]=useState(null);
+    const{user,setUser}=useContext(BlogContext)
     const[blogNotify,setBlogNotify]=useState(null)
     const[userBlogs,setUserBlogs]=useState(null)
 
