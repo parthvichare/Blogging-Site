@@ -14,9 +14,9 @@ const AddedBlogNotify = ({ socket, count }) => {
 
   return (
     <div class="">
-      <button onClick={toggleNotify} class="-mt-1">
+      <button onClick={toggleNotify} class="-mt-1 bg-transparent">
         <div className="relative flex items-center">
-          <svg
+          {/* <svg
             width="24px"
             height="24px"
             viewBox="0 0 36 36"
@@ -34,6 +34,26 @@ const AddedBlogNotify = ({ socket, count }) => {
               d="M18,34.28A2.67,2.67,0,0,0,20.58,32H15.32A2.67,2.67,0,0,0,18,34.28Z"
             ></path>
             <rect x="0" y="0" width="10" height="10" fillOpacity="0" />
+          </svg> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+            aria-label="Notifications"
+             className="w-6 s:mt-2 s:w-8 s:h-8  text-stone-600 hover:text-black transition duration-200"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              d="M15 18.5a3 3 0 1 1-6 0"
+            ></path>
+            <path
+              stroke="currentColor"
+              stroke-linejoin="round"
+              d="M5.5 10.532V9a6.5 6.5 0 0 1 13 0v1.532c0 1.42.564 2.782 1.568 3.786l.032.032c.256.256.4.604.4.966v2.934a.25.25 0 0 1-.25.25H3.75a.25.25 0 0 1-.25-.25v-2.934c0-.363.144-.71.4-.966l.032-.032A5.35 5.35 0 0 0 5.5 10.532Z"
+            ></path>
           </svg>
 
           {/* Notification Badge */}
@@ -44,7 +64,11 @@ const AddedBlogNotify = ({ socket, count }) => {
           )} */}
         </div>
       </button>
-      <SidebarNotify notifytoggle={notifytoggle} toggleNotify={toggleNotify} socket={socket} />
+      <SidebarNotify
+        notifytoggle={notifytoggle}
+        toggleNotify={toggleNotify}
+        socket={socket}
+      />
     </div>
   );
 };

@@ -66,7 +66,7 @@ const Navbar = ({ socket }) => {
             </ul>
 
             {/* Menus */}
-            <div class="l:w-full s:w-full l:pr-2">
+            <div class="l:w-full s:w-full l:pr- 2">
               <ul class="laptop-l:flex laptop:flex tablet:flex justify-end inline-block space-x-8 s:space-x-8 s:flex m:space-x-8 tablet:mr-10 m:mr-4">
                 <a href="/blog/addblog">
                   <div class="laptop-l:flex laptop:flex tablet:flex tablet:w-8 tablet:h-8 s:w-5  block   text-stone-600 hover:text-black">
@@ -98,7 +98,7 @@ const Navbar = ({ socket }) => {
                 </div>
 
                 {/* Profile Navbar */}
-                <button onClick={toggleUserOption} className="s:mb-2 ">
+                <button onClick={toggleUserOption} className="s:mb-2 bg-white bg-transparent">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
