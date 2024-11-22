@@ -1,10 +1,10 @@
-# Medium Clone
+# Blogging-Site:- Medium-Clone FullStack Based
 
 This is a full-stack Medium Clone application built with React for the frontend and Node.js for the backend. It includes real-time updates, secure user authentication, and content management features such as adding, updating, deleting blogs, and commenting. 
 It uses MongoDB for storage, AWS S3 for image storage, and Docker for containerization
 
 
-# Features
+# 📌 Features
 ## User Authentication: Secure login and registration with JWT token-based authentication
 ## Blog Management: Users can add, update, and delete their own blogs
 ## Commenting System: Users can comment on blogs. Only the owner of the blog or comment can delete it
@@ -15,7 +15,7 @@ It uses MongoDB for storage, AWS S3 for image storage, and Docker for containeri
 ## Cross-Origin Resource Sharing (CORS): Configured CORS for seamless communication between the frontend (Vercel) and backend (Render), with MongoDB Atlas as the database
 ## Containerization: The app is containerized using Docker for both frontend, backend, and MongoDB
 
-# Tech Stack
+# 📌Tech Stack
 ## Frontend: React.js, Tailwind CSS
 ## Backend: Node.js, Express
 ## Database: MongoDB
