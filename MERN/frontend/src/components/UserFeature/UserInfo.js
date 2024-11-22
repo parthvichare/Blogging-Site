@@ -69,7 +69,7 @@ const UserInfo = ({socket}) => {
         }
       }
       fetchBlog()
-     },[id])
+     },[adminId])
 
      if(!userBlogs){
       return <p>Loading</p>
