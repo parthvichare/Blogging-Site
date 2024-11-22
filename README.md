@@ -5,15 +5,15 @@ It uses MongoDB for storage, AWS S3 for image storage, and Docker for containeri
 
 
 # Features
-## User Authentication: Secure login and registration with JWT token-based authentication
-## Blog Management: Users can add, update, and delete their own blogs
-## Commenting System: Users can comment on blogs. Only the owner of the blog or comment can delete it
-## Real-time Updates: WebSocket integration for live updates when new blogs or comments are added
-## Image Handling: Serverless image rendering using AWS S3 Bucket
-## Personal Blog List: Each user has a personal blog list in their profile
-## Responsiveness: Fully responsive design using Tailwind CSS to ensure a great experience on both desktop and mobile devices
-## Cross-Origin Resource Sharing (CORS): Configured CORS for seamless communication between the frontend (Vercel) and backend (Render), with MongoDB Atlas as the database
-## Containerization: The app is containerized using Docker for both frontend, backend, and MongoDB
+User Authentication: Secure login and registration with JWT token-based authentication
+Blog Management: Users can add, update, and delete their own blogs
+Commenting System: Users can comment on blogs. Only the owner of the blog or comment can delete it
+Real-time Updates: WebSocket integration for live updates when new blogs or comments are added
+Image Handling: Serverless image rendering using AWS S3 Bucket
+Personal Blog List: Each user has a personal blog list in their profile
+Responsiveness: Fully responsive design using Tailwind CSS to ensure a great experience on both desktop and mobile devices
+Cross-Origin Resource Sharing (CORS): Configured CORS for seamless communication between the frontend (Vercel) and backend (Render), with MongoDB Atlas as the database
+Containerization: The app is containerized using Docker for both frontend, backend, and MongoDB
 
 # Tech Stack
 ## Frontend: React.js, Tailwind CSS
