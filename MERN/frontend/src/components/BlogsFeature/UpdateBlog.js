@@ -91,36 +91,30 @@ const UpdateBlog = () => {
   }
   return (
     <div>
-      <div className="flex justify-center overflow-hidden">
+      <div className="flex justify-center overflow-hidden s:px-8 l:px-24">
         <form onSubmit={handleSubmit}>
-          <div className="flex justify-start  laptop:ml-20 tablet:text-4xl tablet:ml-5 font-extrabold text-4xl px-3 l:text-xl l:justify-center s:text-2xl mb-10">
-            <div className="flex">
-              <p className="pr-10 font-semibold">Title:</p>
-              <textarea
+          <div className="flex justify-center tablet:text-4xl l:text-xl ">
+             <textarea
                 ref={TitleRef}
                 value={updateblog.title}
-                className="w-[680px]   tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] overflow-hidden focus:outline-none resize-none"
+                className="tablet:w-[590px]  l:w-[377px] m:w-[327px]  s:w-[300px]  s:text-2xl flex s:justify-center justify-center font-semibold overflow-hidden focus:outline-none resize-none bg-transparent"
                 type="text"
                 name="title"
                 onChange={handleChange}
                 required
               />
-            </div>
           </div>
-
-          <div className="flex justify-start  laptop:ml-6 tablet:text-4xl tablet:ml-5  text-4xl px-3 l:text-xl l:justify-center s:text-2xl">
-            <div className="flex">
-              <p className="pr-5 text-3xl font-semibold">Content:</p>
+          <div className="text-5xl s:flex justify-center mb-6">. . . .</div>                
+          <div className="flex justify-center tablet:text-4xl tablet:ml-5  text-4xl px-3 l:text-xl l:justify-center s:text-2xl">
               <textarea
                 ref={ContentRef}
                 value={updateblog.body}
-                className="w-[680px]   tablet:w-[680px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] font-custom-serif space-x-5 text-2xl overflow-hidden focus:outline-none resize-none"
+                className="tablet:w-[600px] tablet:h-[104px] l:w-[377px] l:h-[76px] m:w-[327px] m:h-[114px] s:w-[272px] s:h-[114px] font-custom-serif space-x-5 text-2xl overflow-hidden focus:outline-none resize-none  bg-transparent"
                 type="text"
                 name="body"
                 onChange={handleChange}
                 required
               />
-            </div>
             <button
               type="submit"
               className="fixed bottom-10 w-32 bg-red-700 p-2 text-xl"
@@ -137,3 +131,4 @@ const UpdateBlog = () => {
 };
 
 export default UpdateBlog;
+
