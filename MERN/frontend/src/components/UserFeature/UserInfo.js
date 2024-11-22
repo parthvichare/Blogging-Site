@@ -120,7 +120,7 @@ const UserInfo = ({socket}) => {
                               {/* <p class="laptop-l:w-[464px] ml-4 s:ml-1 s:w-[206px] s:pl-2 s:font-semibold">Blog Created by {item.createdBy.firstname} </p> */}
                             </div>
                             <h2 
-                            className="laptop-l:w-[464px] laptop:w-[450px] tablet:w-[430px] tablet:text-3xl laptop-l:text-3xl laptop:text-3xl l:w-[270px] l:text-base l:font-bold mb-2 s:w-[168px] s:font-bold">
+                            className="laptop-l:w-[464px] laptop:w-[450px] tablet:w-[430px] m:w-[200px] tablet:text-3xl laptop-l:text-3xl laptop:text-3xl l:w-[270px] l:text-base l:font-bold mb-2 s:w-[168px] s:font-bold">
                               {item.title}
                             </h2>
                             {/* <span>{item.body}</span> */}
@@ -141,8 +141,8 @@ const UserInfo = ({socket}) => {
                           </div>
                           <div class="mt-8">
                             <img
-                              src={`${BACKEND_URL}${item.blogImages}`}
-                              className="laptop-l:w-[190px] laptop:w-[180px] tablet:w-[190px] tablet:h-28 laptop:h-24 laptop-l:h-28 l:w-[100px] l:h-20 mb-8 s:w-[230px] s:h-16 "
+                              src={item.blogImages}
+                              className="laptop-l:w-[190px] laptop:w-[180px] tablet:w-[190px] tablet:h-28 laptop:h-24 laptop-l:h-28 l:w-[100px] l:h-20 mb-8 s:w-[230px] m:w-[80px] s:h-16 m:ml-10 "
                             />
                           </div>
                 </a>
@@ -153,3 +153,4 @@ const UserInfo = ({socket}) => {
 }
 
 export default UserInfo
+
