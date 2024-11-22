@@ -27,39 +27,39 @@ const UserInfo = ({socket}) => {
 
      const BACKEND_URL= process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000'
 
-    useEffect(()=>{
-      const fetchBlogNotify=()=>{
-        if(userId){
-            if(socket && socket.current){
-                socket.current.on("NewBlogNotify", (notifyData) => {
-                    if (notifyData) {
-                        setBlogNotify(notifyData);
-                        // Save notifications to localStorage
-                        localStorage.setItem("blogNotify", JSON.stringify(notifyData));
-                        console.log("Received Notification:", notifyData);
-                    }
-                });
-            }
-        }
-    }
-    fetchBlogNotify()
-     },[id])
+    // useEffect(()=>{
+    //   const fetchBlogNotify=()=>{
+    //     if(userId){
+    //         if(socket && socket.current){
+    //             socket.current.on("NewBlogNotify", (notifyData) => {
+    //                 if (notifyData) {
+    //                     setBlogNotify(notifyData);
+    //                     // Save notifications to localStorage
+    //                     localStorage.setItem("blogNotify", JSON.stringify(notifyData));
+    //                     console.log("Received Notification:", notifyData);
+    //                 }
+    //             });
+    //         }
+    //     }
+    // }
+    // fetchBlogNotify()
+    //  },[id])
 
-     useEffect(()=>{
-      const fetchBlog=async()=>{
-        try{
-          const response = await axiosInstance.get("/blog/api/blogs")
-          setUserBlogs(response.data.blogs)
-        }catch(error){
-          console.log(error.message)
-        }
-      }
-      fetchBlog()
-     },[id])
+    //  useEffect(()=>{
+    //   const fetchBlog=async()=>{
+    //     try{
+    //       const response = await axiosInstance.get("/blog/api/blogs")
+    //       setUserBlogs(response.data.blogs)
+    //     }catch(error){
+    //       console.log(error.message)
+    //     }
+    //   }
+    //   fetchBlog()
+    //  },[id])
 
-     if(!userBlogs){
-      return <p>Loading</p>
-     }
+    //  if(!userBlogs){
+    //   return <p>Loading</p>
+    //  }
 
      const filterUserBlog=userBlogs.filter((item)=>item.createdBy._id === userId)
      console.log("Filterd",filterUserBlog)
