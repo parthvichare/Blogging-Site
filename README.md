@@ -7,6 +7,8 @@ It uses MongoDB for storage, AWS S3 for image storage, and Docker for containeri
 ![Medium-Clone](https://myimageuploads.s3.ap-south-1.amazonaws.com/blog-images/1732281229349-image.png)
 ![Medium-Clone](https://myimageuploads.s3.ap-south-1.amazonaws.com/blog-images/1732281615200-image.png)
 
+## Commenting Feature
+![Medium-Clone](https://myimageuploads.s3.ap-south-1.amazonaws.com/blog-images/1732281864475-image.png)
 
 
 # 📌 Features
