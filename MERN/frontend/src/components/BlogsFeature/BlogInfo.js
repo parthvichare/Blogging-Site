@@ -209,7 +209,7 @@ const BlogInfo = ({ socket }) => {
           <div class="l:mx-4 laptop:mx-12">
           <div className={`${menuisopen ? "opacity-50" : ""} relative z-0`}>
             <img
-              src={blogs.blogImages} // Correct path
+              src={`${process.env.REACT_APP_S3_URL}${blogs.blogImages}`} // Correct path
               alt="Blog Image"
               className="laptop-l:w-[690px] laptop:w-[650px] tablet:w-[620px] l:w-[360px] s:w-[272px] s:pl-8 m:w-[340px] h-auto mt-4 mb-4  laptop-l:ml-2 laptop:ml-8 tablet:ml-10" 
             />
