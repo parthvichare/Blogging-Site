@@ -4,6 +4,7 @@ This is a full-stack Medium Clone application built with React for the frontend 
 It uses MongoDB for storage, AWS S3 for image storage, and Docker for containerization
 
 
+
 # 📌 Features
 ## User Authentication: Secure login and registration with JWT token-based authentication
 ## Blog Management: Users can add, update, and delete their own blogs
@@ -14,6 +15,8 @@ It uses MongoDB for storage, AWS S3 for image storage, and Docker for containeri
 ## Responsiveness: Fully responsive design using Tailwind CSS to ensure a great experience on both desktop and mobile devices
 ## Cross-Origin Resource Sharing (CORS): Configured CORS for seamless communication between the frontend (Vercel) and backend (Render), with MongoDB Atlas as the database
 ## Containerization: The app is containerized using Docker for both frontend, backend, and MongoDB
+
+
 
 # 📌Tech Stack
 ## Frontend: React.js, Tailwind CSS
