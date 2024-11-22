@@ -4,22 +4,36 @@ import axiosInstance from '../../axiosInstance';
 import { BlogContext } from '../BlogContext';
 
 const UserInfo = ({socket}) => {
-    const{id}=useParams();
     const{user,setUser}=useContext(BlogContext)
     const[blogNotify,setBlogNotify]=useState(null)
     const[userBlogs,setUserBlogs]=useState(null)
 
-    useEffect(()=>{
-      const fetchUser= async()=>{
-        try{
-          const response = await axiosInstance.get(`/user/${id}`);
-          setUser(response.data.users);
-        }catch(error){
-          console.log("Error fetching user:", error)
+
+    const adminId=localStorage.getItem("AdminId")
+    
+    useEffect(() => {
+      const fetchUser = async () => {
+        try {
+          const response = await axiosInstance.get(`/user/${adminId}`);
+          const { user, Anoynomus_users } = response.data;
+    
+          if (!user) {
+            // If user is null, display the anonymous user message
+            setUser(Anoynomus_users || "No user found");
+          } else {
+            setUser(user);
+          }
+    
+          console.log(user); // Log the user or message
+        } catch (error) {
+          console.log("Error fetching user:", error);
+          setUser("Error fetching user");
         }
-      }
-      fetchUser()
-    },[id])
+      };
+    
+      fetchUser();
+    }, [adminId]); // Ensure the dependency is correct
+    
 
 
     // Getting the User Id from local
@@ -45,21 +59,21 @@ const UserInfo = ({socket}) => {
     // fetchBlogNotify()
     //  },[id])
 
-    //  useEffect(()=>{
-    //   const fetchBlog=async()=>{
-    //     try{
-    //       const response = await axiosInstance.get("/blog/api/blogs")
-    //       setUserBlogs(response.data.blogs)
-    //     }catch(error){
-    //       console.log(error.message)
-    //     }
-    //   }
-    //   fetchBlog()
-    //  },[id])
+     useEffect(()=>{
+      const fetchBlog=async()=>{
+        try{
+          const response = await axiosInstance.get("/blog/api/blogs")
+          setUserBlogs(response.data.blogs)
+        }catch(error){
+          console.log(error.message)
+        }
+      }
+      fetchBlog()
+     },[id])
 
-    //  if(!userBlogs){
-    //   return <p>Loading</p>
-    //  }
+     if(!userBlogs){
+      return <p>Loading</p>
+     }
 
      const filterUserBlog=userBlogs.filter((item)=>item.createdBy._id === userId)
      console.log("Filterd",filterUserBlog)
